@@ -9,7 +9,7 @@ require("./Models/User/UserModel");
 const app = express();
 app.use(
   cors({
-    origin: "",
+    origin: "https://finance-44cp.onrender.com/",
   })
 );
 app.use(express.json());
