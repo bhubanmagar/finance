@@ -11,7 +11,6 @@ const userRegister = async (req, res) => {
     dateOfBirth,
     accountNo,
     accountType,
-    // securityQuestions,
     address,
   } = req.body;
   try {
@@ -24,10 +23,7 @@ const userRegister = async (req, res) => {
     if (!accountNo || accountNo == "") throw "Field can't be empty";
     if (!accountType || accountType == "") throw "Field can't be empty";
     if (!address || address == "") throw "Field can't be empty";
-    // if (!securityQuestions || securityQuestions == "")
-    //   throw "Field can't be empty";
 
-    //
     const emailCheck = await User.findOne({
       email: email,
     });
@@ -48,13 +44,13 @@ const userRegister = async (req, res) => {
   } catch (error) {
     return res.status(400).send({
       status: "failed",
-      message: error,
+      message: error.message,
     });
   }
   //
   res.status(201).send({
     status: "ok",
-    message: "Sucessfull",
+    message: "Sucess",
   });
 };
 
