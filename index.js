@@ -3,7 +3,11 @@ const env = require("dotenv");
 const cors = require("cors");
 const userRoute = require("./Routes/user/Routes");
 const ConnectDB = require("./Modules/Controller/databaseconnection/dbConnection");
+const financeRoute = require("./Routes/finance/Finance");
 require("./Models/User/UserModel");
+require("./Models/checkbook/checkbookModel");
+require("./Models/loan/loanModel");
+require("./Models/passbook/passbookModel");
 
 //
 const app = express();
@@ -21,9 +25,10 @@ ConnectDB(MONGO_URI); //database connection
 
 //Routes
 app.use("/user", userRoute);
+app.use("/finance", financeRoute);
 
 app.get("/", (req, res) => {
-  res.send("hello mfs");
+  res.send("home..!");
 });
 
 const port = process.env.PORT || 5000;
