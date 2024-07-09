@@ -6,6 +6,7 @@ const loanHandler = require("../../Modules/Controller/loan/loanHandler");
 const financeRoute = express.Router();
 
 financeRoute.get("/get-checkbook", checkBookHander.getCheckBookRequest);
+financeRoute.get("/get-passbook", registerPassbook.getPassbookRequest);
 financeRoute.post("/request-passbook", registerPassbook.passbookHandler);
 financeRoute.post("/request-checkbook", checkBookHander.checkBookHander);
 financeRoute.post("/request-loan", loanHandler);
