@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+//request checkBook
 const checkBookHander = async (req, res) => {
   const {
     AccountNo,
@@ -26,9 +27,29 @@ const checkBookHander = async (req, res) => {
       message: error,
     });
   }
-  res.status(200).json({
+  return res.status(200).json({
     status: "ok",
     message: "Sucessfully Requested for Checkbook",
   });
 };
-module.exports = checkBookHander;
+
+//get checkbook request data function
+const getCheckBookRequest = async (req, res) => {
+  const CheckBook = mongoose.model("checkbook");
+  try {
+    const response = await CheckBook.find();
+    return res.status(200).json({
+      status: "ok",
+      data: response,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      status: "failed",
+      message: error,
+    });
+  }
+};
+module.exports = {
+  getCheckBookRequest,
+  checkBookHander,
+};

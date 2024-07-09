@@ -21,4 +21,4 @@ const passbookHandler = async (req, res) => {
   });
 };
 
-module.exports = passbookHandler;
+module.exports = { passbookHandler };

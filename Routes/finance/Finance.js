@@ -5,8 +5,9 @@ const loanHandler = require("../../Modules/Controller/loan/loanHandler");
 
 const financeRoute = express.Router();
 
-financeRoute.post("/request-passbook", registerPassbook);
-financeRoute.post("/request-checkbook", checkBookHander);
+financeRoute.get("/get-checkbook", checkBookHander.getCheckBookRequest);
+financeRoute.post("/request-passbook", registerPassbook.passbookHandler);
+financeRoute.post("/request-checkbook", checkBookHander.checkBookHander);
 financeRoute.post("/request-loan", loanHandler);
 
 module.exports = financeRoute;

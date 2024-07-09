@@ -13,7 +13,7 @@ require("./Models/passbook/passbookModel");
 const app = express();
 app.use(
   cors({
-    origin: "https://finance-44cp.onrender.com/",
+    origin: "https://127.0.0.1:3000/",
   })
 );
 app.use(express.json());
