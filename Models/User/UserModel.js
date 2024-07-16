@@ -16,13 +16,16 @@ const userSchema = new mongoose.Schema({
   dateOfBirth: { type: Date, required: true },
   address: { type: String, required: true },
   accountNo: { type: String, required: true, unique: true },
-  accountType: { type: String, enum: ["saving", "general"], required: true },
-  // securityQuestions: [
-  //   {
-  //     question: { type: String, required: true },
-  //     answer: { type: String, required: true },
-  //   },
-  // ],
+  accountType: {
+    type: String,
+    enum: ["saving", "general"],
+    required: true,
+  },
+  role: {
+    type: String,
+    enum: ["general", "admin"],
+    default: "general",
+  },
 });
 
 const User = mongoose.model("user", userSchema);

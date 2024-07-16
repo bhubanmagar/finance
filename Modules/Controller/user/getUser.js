@@ -5,7 +5,6 @@ const getUser = async (req, res) => {
 
   try {
     const response = await User.find();
-    console.log("hello world");
     return res.status(200).json({
       status: "ok",
       data: response,

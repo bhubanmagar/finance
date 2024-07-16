@@ -45,7 +45,7 @@ const getCheckBookRequest = async (req, res) => {
   } catch (error) {
     return res.status(400).json({
       status: "failed",
-      message: error,
+      message: "Failed to retrive CheckBook Requests",
     });
   }
 };
